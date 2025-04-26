@@ -13,5 +13,11 @@ public class ErrorTruncamiento {
         double valorOriginal = 3.14159265;
         int decimales = 4;
 
+        double valorTruncado = truncar(valorOriginal, decimales);
+        double errorTruncamiento = calcularErrorTruncamiento(valorOriginal, valorTruncado);
+
+        System.out.println("Valor original: " + valorOriginal);
+        System.out.println("Valor truncado: " + valorTruncado);
+        System.out.println("Error de Truncamiento: " + errorTruncamiento);
     }
 }
