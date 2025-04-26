@@ -30,7 +30,16 @@ public class ReglaDelTrapecio {
     }
 
     private static double trapecio(Function<Double, Double> f, double a, double b, int n) {
+        double h = (b - a) / n;
+        
+        double suma = (f.apply(a) + f.apply(b)) / 2.0;
 
+        for (int i = 1; i < n; i++) {
+            double x = a + i * h;
+            suma += f.apply(x);
+        }
+
+        return h * suma;
     }
 
     private static double evaluarFuncion(String expr) {
