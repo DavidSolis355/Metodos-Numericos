@@ -64,6 +64,6 @@ Cada método tiene su propio campo de aplicación dependiendo de:
 - La necesidad de precisión.
 - La facilidad de derivar la función o no.
 
-La correcta elección del método puede significar una solución más rápida y precisa.
+La correcta elección del método puede significar una solución más rápida y precisa
 
 ---
