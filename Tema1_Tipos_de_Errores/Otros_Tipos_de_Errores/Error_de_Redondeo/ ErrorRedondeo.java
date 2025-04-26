@@ -24,7 +24,4 @@ public class ErrorRedondeo {
         System.out.println("Valor redondeado: " + valorRedondeado);
         System.out.println("Error de Redondeo: " + errorRedondeo);
     }
-
-    
-
 }
