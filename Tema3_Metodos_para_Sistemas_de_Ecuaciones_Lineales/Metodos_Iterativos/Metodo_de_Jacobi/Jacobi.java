@@ -14,8 +14,8 @@ public class Jacobi {
         System.out.println("\nMatriz inicial:");
         mostrarMatriz(matriz, orden);
 
-        double[] x = new double[orden]; // Aproximaciones actuales
-        double[] xNuevo = new double[orden]; // Nuevas aproximaciones
+        double[] x = new double[orden]; 
+        double[] xNuevo = new double[orden]; 
         double tolerancia = 1e-6;
         int iteracionesMax = 100;
         int iteracion = 0;
@@ -43,7 +43,6 @@ public class Jacobi {
                 }
             }
 
-            // Actualizar x para la siguiente iteración
             System.arraycopy(xNuevo, 0, x, 0, orden);
             iteracion++;
         }
@@ -61,11 +60,23 @@ public class Jacobi {
     }
 
     public static double[][] generarMatriz(int orden) {
+        Random rand = new Random();
+        double[][] matriz = new double[orden][orden + 1];
 
+        for (int i = 0; i < orden; i++) {
+            for (int j = 0; j < orden + 1; j++) {
+                matriz[i][j] = rand.nextInt(10) - 5; 
+            }
+            if (matriz[i][i] == 0) {
+                matriz[i][i] = rand.nextInt(5) + 1;
+            }
+        }
+
+        return matriz;
     }
 
     public static void mostrarMatriz(double[][] matriz, int orden) {
-
+        
     }
 }
 
