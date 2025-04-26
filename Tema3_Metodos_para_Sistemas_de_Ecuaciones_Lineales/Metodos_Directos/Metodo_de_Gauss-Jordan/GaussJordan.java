@@ -47,7 +47,16 @@ public class GaussJordan {
     }
 
     public static double[][] generarMatriz(int orden) {
-
+        Random rand = new Random();
+        double[][] matriz = new double[orden][orden + 1];
+        
+        for (int i = 0; i < orden; i++) {
+            for (int j = 0; j < orden + 1; j++) {
+                matriz[i][j] = rand.nextInt(10) - 5; // Números entre -5 y 4
+            }
+        }
+        
+        return matriz;
     }
 
     public static void mostrarMatriz(double[][] matriz, int orden) {
