@@ -76,7 +76,15 @@ public class Jacobi {
     }
 
     public static void mostrarMatriz(double[][] matriz, int orden) {
-        
+         for (int i = 0; i < orden; i++) {
+            String linea = "| ";
+            for (int j = 0; j < orden + 1; j++) {
+                linea += String.format("%8.3f", matriz[i][j]) + " ";
+            }
+            linea += "|";
+            System.out.println(linea);
+        }
+        System.out.println();
     }
 }
 
