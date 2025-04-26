@@ -27,7 +27,19 @@ public class CuadraturaGaussiana {
     }
 
     private static double gauss2Puntos(Function<Double, Double> f, double a, double b) {
-
+        double[] puntos = { -Math.sqrt(1.0 / 3), Math.sqrt(1.0 / 3) };
+        double[] pesos = { 1.0, 1.0 }; 
+        
+        double c1 = (b - a) / 2.0;
+        double c2 = (b + a) / 2.0;
+        
+        double resultado = 0.0;
+        for (int i = 0; i < puntos.length; i++) {
+            double x = c1 * puntos[i] + c2;
+            resultado += pesos[i] * f.apply(x);
+        }
+        
+        return c1 * resultado;
     }
 
     private static double evaluarFuncion(String expr) {
