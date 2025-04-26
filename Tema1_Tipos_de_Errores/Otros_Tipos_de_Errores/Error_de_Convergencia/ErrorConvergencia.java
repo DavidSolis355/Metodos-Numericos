@@ -8,7 +8,9 @@ public class ErrorConvergencia {
         double xAnterior = 1.5000;
         double xActual = 1.4975;
 
-        
+         double errorConvergencia = calcularErrorConvergencia(xActual, xAnterior);
+
+        System.out.println("Error de Convergencia: " + errorConvergencia);
 
     }
 
