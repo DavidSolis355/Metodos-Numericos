@@ -35,7 +35,20 @@ public class Simpson13 {
     }
 
     private static double simpson13(Function<Double, Double> f, double a, double b, int n) {
-
+        double h = (b - a) / n;
+        
+        double suma = f.apply(a) + f.apply(b);
+        
+        for (int i = 1; i < n; i++) {
+            double x = a + i * h;
+            if (i % 2 == 0) {
+                suma += 2 * f.apply(x);
+            } else {
+                suma += 4 * f.apply(x);
+            }
+        }
+        
+        return h / 3 * suma;
     }
 
     private static double evaluarFuncion(String expr) {
