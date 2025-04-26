@@ -9,7 +9,9 @@ public class ErrorRedondeo {
         return bd.doubleValue();
     }
 
-    
+    public static double calcularErrorRedondeo(double valorOriginal, double valorRedondeado) {
+        return Math.abs(valorOriginal - valorRedondeado);
+    }
 
     public static void main(String[] args) {
         double valorOriginal = 3.14159265;
