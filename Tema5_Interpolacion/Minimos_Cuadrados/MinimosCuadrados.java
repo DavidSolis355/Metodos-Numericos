@@ -22,4 +22,12 @@ public class MetodoMinimosCuadrados {
         return new double[]{m, b};
     }
 
+     // Método para predecir los valores de y usando la recta de regresión y = mx + b
+    public static double[] predecir(double[] x, double m, double b) {
+        double[] yPred = new double[x.length];
+        for (int i = 0; i < x.length; i++) {
+            yPred[i] = m * x[i] + b;
+        }
+        return yPred;
+    }
 }
