@@ -27,5 +27,32 @@ public class RegresionLineal {
         
         // Cálculos necesarios para el método de mínimos cuadrados
         double sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
+
+        // Sumar los términos necesarios
+        for (int i = 0; i < n; i++) {
+            sumX += x[i];
+            sumY += y[i];
+            sumXY += x[i] * y[i];
+            sumX2 += x[i] * x[i];
+        }
+        
+        // Calcular los coeficientes m (pendiente) y b (intersección)
+        double m = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+        double b = (sumY - m * sumX) / n;
+        
+        // Mostrar los resultados
+        System.out.println("\nRESULTADOS:");
+        System.out.printf("Pendiente (m) = %.4f%n", m);
+        System.out.printf("Intersección (b) = %.4f%n", b);
+        System.out.println("La ecuación de la recta ajustada es: y = " + m + "x + " + b);
+        
+        // Predicciones para algunos valores de x (si es necesario)
+        System.out.println("\nRealizando predicciones para valores de x:");
+        System.out.print("Introduzca un valor de x para predecir y: ");
+        double xNuevo = scanner.nextDouble();
+        double yPredicho = m * xNuevo + b;
+        System.out.printf("Para x = %.4f, la predicción de y es: %.4f%n", xNuevo, yPredicho);
+        
+        scanner.close();
     }
 }
