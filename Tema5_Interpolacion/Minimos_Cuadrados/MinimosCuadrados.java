@@ -30,4 +30,26 @@ public class MetodoMinimosCuadrados {
         }
         return yPred;
     }
+     public static void main(String[] args) {
+        // Datos de ejemplo (valores de x y y)
+        double[] x = {1, 2, 3, 4, 5};
+        double[] y = {2, 4, 5, 4, 5};
+        
+        // Calcular la pendiente y la intersección
+        double[] resultados = calcularMinimosCuadrados(x, y);
+        double m = resultados[0];
+        double b = resultados[1];
+        
+        // Mostrar la ecuación de la recta ajustada
+        System.out.println("Ecuación de la recta de regresión: y = " + m + "x + " + b);
+        
+        // Predecir los valores de y usando la recta de regresión
+        double[] yPred = predecir(x, m, b);
+        
+        // Mostrar las predicciones
+        System.out.println("Valores predichos de y:");
+        for (int i = 0; i < yPred.length; i++) {
+            System.out.println("x = " + x[i] + ", Predicción y = " + yPred[i]);
+        }
+    }
 }
