@@ -2,7 +2,36 @@ import java.util.Scanner;
 
 public class Correlacion {
     public static void main(String[] args) {
+         // Crear el objeto Scanner para leer los datos desde el teclado
+        Scanner scanner = new Scanner(System.in);
 
+        // Solicitar al usuario el número de elementos en los conjuntos de datos
+        System.out.println("Ingrese el número de elementos en los conjuntos de datos:");
+        int n = scanner.nextInt();
+        
+        // Crear dos arreglos para almacenar los valores de x e y
+        double[] x = new double[n];
+        double[] y = new double[n];
+
+        // Leer los valores de los conjuntos de datos x y y
+        System.out.println("Ingrese los valores del conjunto de datos x:");
+        for (int i = 0; i < n; i++) {
+            x[i] = scanner.nextDouble();
+        }
+        
+        System.out.println("Ingrese los valores del conjunto de datos y:");
+        for (int i = 0; i < n; i++) {
+            y[i] = scanner.nextDouble();
+        }
+
+        // Llamar al método para calcular el coeficiente de correlación de Pearson
+        double r = calcularCorrelacion(x, y, n);
+
+        // Mostrar el resultado de la correlación
+        System.out.printf("El coeficiente de correlación de Pearson es: %.4f%n", r);
+        
+        // Cerrar el scanner
+        scanner.close();
     }
 
     /**
