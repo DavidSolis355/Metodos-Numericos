@@ -33,4 +33,23 @@ public class Correlacion {
         // Calcular el coeficiente de correlación de Pearson
         return sumatoriaXY / Math.sqrt(sumatoriaX2 * sumatoriaY2);
     }
+
+     /**
+     * Este método calcula la media de un conjunto de datos.
+     * 
+     * @param datos Arreglo con los valores del conjunto de datos.
+     * @param n El número de elementos en el conjunto de datos.
+     * @return La media del conjunto de datos.
+     */
+    public static double calcularMedia(double[] datos, int n) {
+        double suma = 0;
+
+        // Sumar todos los valores de los datos
+        for (int i = 0; i < n; i++) {
+            suma += datos[i];
+        }
+
+        // Calcular la media
+        return suma / n;
+    }
 }
