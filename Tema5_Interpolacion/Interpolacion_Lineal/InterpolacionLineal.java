@@ -4,7 +4,30 @@ public class InterpolacionLineal {
     public static void main(String[] args) {
          // Crear un scanner para leer la entrada del usuario
         Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Interpolación Lineal");
+        System.out.println("---------------------");
 
+        // Entrada de los dos puntos conocidos (x0, y0) y (x1, y1)
+        System.out.println("Introduzca el valor de x0:");
+        double x0 = scanner.nextDouble();
+        System.out.println("Introduzca el valor de y0:");
+        double y0 = scanner.nextDouble();
+
+        System.out.println("Introduzca el valor de x1:");
+        double x1 = scanner.nextDouble();
+        System.out.println("Introduzca el valor de y1:");
+        double y1 = scanner.nextDouble();
+
+        // Entrada del valor para el cual se quiere estimar y
+        System.out.println("Introduzca el valor de x para el cual desea estimar y:");
+        double x = scanner.nextDouble();
+
+        // Calcular el valor de y usando la fórmula de interpolación lineal
+        double y = interpolar(x0, y0, x1, y1, x);
+
+        // Mostrar el resultado
+        System.out.printf("El valor estimado de y en x = %.2f es: %.4f%n", x, y);
     }
 
     /**
