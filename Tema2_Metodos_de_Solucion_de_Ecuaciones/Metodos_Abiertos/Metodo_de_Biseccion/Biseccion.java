@@ -22,6 +22,13 @@ public class Biseccion {
         return Math.pow(x, 3) - x - 2;
     }
 
+    /**
+     * Método que implementa la técnica de Bisección para encontrar la raíz de una función.
+     * @param a Límite inferior del intervalo
+     * @param b Límite superior del intervalo
+     * @param tol Tolerancia (error máximo permitido)
+     * @param maxIter Número máximo de iteraciones permitidas
+     */
     public static void biseccion(double a, double b, double tol, int maxIter) {
         double fa = funcion(a);
         double fb = funcion(b);
