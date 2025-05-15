@@ -10,4 +10,13 @@ public class MetodoSecante {
         secante(x0, x1, tolerancia, maxIter);
     }
 
+    /**
+     * Función f(x) a la cual se le quiere encontrar la raíz.
+     * @param x Valor de entrada
+     * @return Valor de la función en x
+     */
+    public static double f(double x) {
+        // Ejemplo: f(x) = x^2 - 3x + 2
+        return Math.pow(x, 2) - 3 * x + 2;
+    }
 }
