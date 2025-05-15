@@ -22,7 +22,13 @@ public class MetodoReglaFalsa {
         return Math.pow(x, 3) - x - 2;
     }
 
-    
+    /**
+     * Método que implementa la técnica de la Regla Falsa (Falsa Posición) para encontrar una raíz de la función.
+     * @param a Límite inferior del intervalo
+     * @param b Límite superior del intervalo
+     * @param tol Tolerancia (error máximo permitido)
+     * @param maxIter Número máximo de iteraciones permitidas
+     */
     public static void reglaFalsa(double a, double b, double tol, int maxIter) {
         double fa = funcion(a);
         double fb = funcion(b);
