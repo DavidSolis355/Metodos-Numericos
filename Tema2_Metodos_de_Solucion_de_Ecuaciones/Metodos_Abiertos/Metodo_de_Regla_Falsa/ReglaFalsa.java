@@ -11,4 +11,15 @@ public class MetodoReglaFalsa {
         reglaFalsa(a, b, tolerancia, maxIteraciones);
     }
 
+    /**
+     * Función definida por el usuario.
+     * Cambiar esta función según el problema específico a resolver.
+     * @param x Valor de entrada
+     * @return Resultado de f(x)
+     */
+    public static double funcion(double x) {
+        // Ejemplo: f(x) = x^3 - x - 2
+        return Math.pow(x, 3) - x - 2;
+    }
+    
 }
