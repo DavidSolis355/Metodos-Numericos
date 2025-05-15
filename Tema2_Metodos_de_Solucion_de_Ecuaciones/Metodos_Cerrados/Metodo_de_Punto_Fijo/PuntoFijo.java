@@ -20,6 +20,14 @@ public class MetodoPuntoFijo {
         return (Math.pow(x, 2) + 2) / 3;
     }
 
+    /**
+     * Método de Punto Fijo para encontrar una raíz de la ecuación f(x) = 0
+     * transformándola en x = g(x).
+     *
+     * @param x0 Valor inicial (aproximación inicial)
+     * @param tol Tolerancia deseada (error máximo permitido)
+     * @param maxIter Número máximo de iteraciones
+     */
     public static void puntoFijo(double x0, double tol, int maxIter) {
         int iteracion = 0;
         double x = x0;
