@@ -20,6 +20,14 @@ public class MetodoSecante {
         return Math.pow(x, 2) - 3 * x + 2;
     }
 
+    /**
+     * Método de la Secante para encontrar una raíz de f(x) = 0.
+     *
+     * @param x0 Primera aproximación inicial
+     * @param x1 Segunda aproximación inicial
+     * @param tol Tolerancia deseada
+     * @param maxIter Número máximo de iteraciones permitidas
+     */
     public static void secante(double x0, double x1, double tol, int maxIter) {
         double f0 = f(x0);
         double f1 = f(x1);
