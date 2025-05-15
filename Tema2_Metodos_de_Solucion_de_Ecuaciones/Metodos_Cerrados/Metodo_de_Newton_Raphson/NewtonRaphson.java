@@ -10,5 +10,14 @@ public class MetodoNewtonRaphson {
         newtonRaphson(x0, tolerancia, maxIteraciones);
     }
 
-    
+    /**
+     * Derivada de la función.
+     * Debe ser definida manualmente por el usuario.
+     * @param x Valor de entrada
+     * @return Resultado de f'(x)
+     */
+    public static double derivada(double x) {
+        // Derivada de f(x) = 3x^2 - 1
+        return 3 * Math.pow(x, 2) - 1;
+    }
 }
