@@ -20,4 +20,15 @@ public class MetodoNewtonRaphson {
         // Derivada de f(x) = 3x^2 - 1
         return 3 * Math.pow(x, 2) - 1;
     }
+
+    /**
+     * Función definida por el usuario.
+     * Cambia esta función según el problema a resolver.
+     * @param x Valor de entrada
+     * @return Resultado de f(x)
+     */
+    public static double funcion(double x) {
+        // Ejemplo: f(x) = x^3 - x - 2
+        return Math.pow(x, 3) - x - 2;
+    }
 }
