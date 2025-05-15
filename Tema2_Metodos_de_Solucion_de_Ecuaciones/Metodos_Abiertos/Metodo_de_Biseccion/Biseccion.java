@@ -10,4 +10,16 @@ public class Biseccion {
         // Llamar al método de bisección
         biseccion(a, b, tolerancia, maxIteraciones);
     }
+
+    /**
+     * Define la función f(x) cuyo valor se desea encontrar igual a cero.
+     * Aquí puedes cambiar la función según tu problema específico.
+     * @param x Valor de entrada
+     * @return Resultado de f(x)
+     */
+    public static double funcion(double x) {
+        // Ejemplo: f(x) = x^3 - x - 2
+        return Math.pow(x, 3) - x - 2;
+    }
+
 }
