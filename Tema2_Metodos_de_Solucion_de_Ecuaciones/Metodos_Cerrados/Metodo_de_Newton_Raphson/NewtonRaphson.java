@@ -32,7 +32,12 @@ public class MetodoNewtonRaphson {
         return Math.pow(x, 3) - x - 2;
     }
 
-    
+    /**
+     * Método que implementa la técnica de Newton-Raphson para encontrar una raíz de la función.
+     * @param x0 Valor inicial (aproximación inicial de la raíz)
+     * @param tol Tolerancia (error máximo permitido)
+     * @param maxIter Número máximo de iteraciones permitidas
+     */
     public static void newtonRaphson(double x0, double tol, int maxIter) {
         int iteracion = 0;
         double x = x0;
