@@ -1,6 +1,18 @@
 public class AdamsBashforth {
 
     /**
+     * Define la función f(x, y) = dy/dx de la EDO.
+     * En este ejemplo, f(x, y) = x + y (puedes cambiarla según el problema).
+     *
+     * @param x Variable independiente.
+     * @param y Valor actual de la función.
+     * @return Valor de la derivada en (x, y).
+     */
+    public static double f(double x, double y) {
+        return x + y;
+    }
+
+    /**
      * Método de Runge-Kutta 4to orden para calcular los primeros 3 valores,
      * necesarios para iniciar el método de Adams-Bashforth de 4 pasos.
      *
