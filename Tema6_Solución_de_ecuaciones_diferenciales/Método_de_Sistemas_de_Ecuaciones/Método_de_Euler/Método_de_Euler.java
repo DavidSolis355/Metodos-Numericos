@@ -1,5 +1,11 @@
 public class MetodoEuler {
 
+    // Definimos la función f(x, y) que representa la derivada dy/dx
+    // En este caso puedes cambiar la función por la que necesites resolver
+    public static double f(double x, double y) {
+        return x + y; // Ejemplo: dy/dx = x + y
+    }
+
     public static void main(String[] args) {
 
         // Condiciones iniciales
