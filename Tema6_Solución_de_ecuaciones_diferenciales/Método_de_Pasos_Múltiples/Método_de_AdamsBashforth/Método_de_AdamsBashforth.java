@@ -1,5 +1,22 @@
 public class AdamsBashforth {
 
+    /**
+     * Método de Runge-Kutta 4to orden para calcular los primeros 3 valores,
+     * necesarios para iniciar el método de Adams-Bashforth de 4 pasos.
+     *
+     * @param x Valor actual de x.
+     * @param y Valor actual de y.
+     * @param h Tamaño del paso.
+     * @return Aproximación de y en x + h.
+     */
+    public static double rungeKuttaStep(double x, double y, double h) {
+        double k1 = f(x, y);
+        double k2 = f(x + h / 2.0, y + h / 2.0 * k1);
+        double k3 = f(x + h / 2.0, y + h / 2.0 * k2);
+        double k4 = f(x + h, y + h * k3);
+        return y + (h / 6.0) * (k1 + 2 * k2 + 2 * k3 + k4);
+    }
+
     public static void main(String[] args) {
         // Condiciones iniciales
         double x0 = 0.0;      // valor inicial de x
