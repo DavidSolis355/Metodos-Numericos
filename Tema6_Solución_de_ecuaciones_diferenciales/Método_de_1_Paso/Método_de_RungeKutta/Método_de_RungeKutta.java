@@ -1,5 +1,32 @@
 public class RungeKutta {
     
+    /**
+     * Implementa un paso del método RK4 para avanzar de (x, y) a (x + h, y_{n+1}).
+     *
+     * @param x Valor actual de la variable independiente.
+     * @param y Valor actual de la función.
+     * @param h Tamaño del paso.
+     * @return Aproximación de y en x + h.
+     */
+    public static double rungeKuttaStep(double x, double y, double h) {
+        // Calcula k1 = f(x_n, y_n)
+        double k1 = f(x, y);
+        
+        // Calcula k2 = f(x_n + h/2, y_n + h/2 * k1)
+        double k2 = f(x + h / 2.0, y + h / 2.0 * k1);
+        
+        // Calcula k3 = f(x_n + h/2, y_n + h/2 * k2)
+        double k3 = f(x + h / 2.0, y + h / 2.0 * k2);
+        
+        // Calcula k4 = f(x_n + h, y_n + h * k3)
+        double k4 = f(x + h, y + h * k3);
+        
+        // Calcula el siguiente valor y_{n+1} usando la fórmula de RK4
+        double yNext = y + (h / 6.0) * (k1 + 2 * k2 + 2 * k3 + k4);
+        
+        return yNext;
+    }
+
     public static void main(String[] args) {
         // Condiciones iniciales
         double x0 = 0.0;    // Valor inicial de x
