@@ -4,9 +4,9 @@ public class AdamsBashforth {
      * Define la función f(x, y) = dy/dx de la EDO.
      * En este ejemplo, f(x, y) = x + y (puedes cambiarla según el problema).
      *
-     * @param x Variable independiente.
-     * @param y Valor actual de la función.
-     * @return Valor de la derivada en (x, y).
+     * @param x Variable independiente
+     * @param y Valor actual de la función
+     * @return Valor de la derivada en (x, y)
      */
     public static double f(double x, double y) {
         return x + y;
