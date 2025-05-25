@@ -1,6 +1,18 @@
 public class RungeKutta {
     
     /**
+     * Define la función f(x, y) = dy/dx de la EDO.
+     * En este ejemplo, f(x, y) = x + y (puedes cambiarla según el problema).
+     *
+     * @param x Variable independiente.
+     * @param y Valor actual de la función.
+     * @return Valor de la derivada en (x, y).
+     */
+    public static double f(double x, double y) {
+        return x + y;
+    }
+
+    /**
      * Implementa un paso del método RK4 para avanzar de (x, y) a (x + h, y_{n+1}).
      *
      * @param x Valor actual de la variable independiente.
