@@ -21,6 +21,9 @@ Error de redondeo: `|3.14159265 - 3.1416| = 7.35E-6`
 
 **Resultado de Consola:**
 
+Valor original: 3.14159265
+Valor redondeado: 3.1416
+Error de Redondeo: 7.349999999970034E-6
 
 ---
 
@@ -38,6 +41,9 @@ Error de redondeo: `|2.7182818 - 2.72| = 0.0017182`
 
 **Resultado de Consola:**
 
+Valor original: 2.7182818
+Valor redondeado: 2.72
+Error de Redondeo: 0.001718199999999927
 
 ---
 
@@ -58,3 +64,5 @@ Lanzará una excepción: `java.lang.ArithmeticException` o `java.lang.IllegalArg
 
 **Resultado de Consola:**
 
+Exception in thread "main" java.lang.IllegalArgumentException: Scale must be non-negative
+at java.math.BigDecimal.setScale(BigDecimal.java:...)
