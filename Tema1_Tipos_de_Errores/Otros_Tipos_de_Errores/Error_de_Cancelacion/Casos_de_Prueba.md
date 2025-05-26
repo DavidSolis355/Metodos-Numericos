@@ -26,7 +26,9 @@ Simula pérdida de precisión al restar números cercanos usando float.
 
 **Resultado de Consola:**
 
-
+Resultado Exacto (double): 0.010000000009313226
+Resultado Aproximado (float): 0.0
+Error por Cancelación: 0.010000000009313226
 
 ---
 
@@ -49,6 +51,9 @@ Diferencia extremadamente pequeña provoca una mayor pérdida de precisión al c
 
 **Resultado de Consola:**
 
+Resultado Exacto (double): 1.00000761449337E-6
+Resultado Aproximado (float): 0.0
+Error por Cancelación: 1.00000761449337E-6
 
 ---
 
@@ -71,3 +76,7 @@ Ingresar un valor `NaN` (Not a Number) como entrada para `a` provoca resultados 
 
 **Resultado de Consola:**
 
+Main.java:38: error: class expected
+        double a = double.NaN;
+                          ^
+1 error
