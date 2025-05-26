@@ -24,11 +24,11 @@ Calcula la diferencia entre dos valores numéricos donde el valor aproximado es 
 
 **Resultado de Consola:**
 
-
+Error Absoluto: 2.3000000000000007
 
 ---
 
-## ✅ Caso de Prueba 2 – Valores iguales (sin error)
+## Caso de Prueba 2 – Valores iguales (sin error)
 
 **Entrada:**
 
@@ -45,7 +45,7 @@ Ambos valores son idénticos, por lo tanto, el error absoluto debe ser `0`.
 
 **Resultado de Consola:**
 
-
+Error Absoluto: 0.0
 
 ---
 
@@ -65,3 +65,10 @@ El valor verdadero se proporciona como una cadena de texto en lugar de un númer
 Error de compilación: *incompatible types: String cannot be converted to double*
 
 **Resultado de Consola:**
+
+Main.java:26: error: cannot find symbol
+        double valorVerdadero = pi;
+                                ^
+  symbol:   variable pi
+  location: class Main
+1 error
