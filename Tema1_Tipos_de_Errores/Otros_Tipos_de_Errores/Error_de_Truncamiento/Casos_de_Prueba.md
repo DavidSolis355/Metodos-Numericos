@@ -21,6 +21,9 @@ Error: `|3.14159265 - 3.1415| = 9.265e-5`
 
 **Resultado de Consola:**
 
+Valor original: 3.14159265
+Valor truncado: 3.1415
+Error de Truncamiento: 9.265000000005342E-5
 
 ---
 
@@ -38,6 +41,9 @@ Error: `|2.7182818 - 2.71| = 0.0082818`
 
 **Resultado de Consola:**
 
+Valor original: 2.7182818
+Valor truncado: 2.71
+Error de Truncamiento: 0.008281799999999885
 
 ---
 
@@ -54,3 +60,6 @@ Los decimales negativos generan un `factor = 10^(-3) = 0.001`, provocando result
 
 **Resultado de Consola:**
 
+Valor original: 1.2345
+Valor truncado: 1000.0
+Error de Truncamiento: 998.7655
