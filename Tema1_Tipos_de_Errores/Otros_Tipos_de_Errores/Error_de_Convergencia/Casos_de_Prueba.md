@@ -20,6 +20,7 @@ Error de convergencia: `|1.4975 - 1.5000| = 0.0025`
 
 **Resultado de Consola:**
 
+Error de Convergencia: 0.0025000000000000577
 
 ---
 
@@ -36,6 +37,7 @@ Error de convergencia: `|1.0000 - 2.0000| = 1.0`
 
 **Resultado de Consola:**
 
+Error de Convergencia: 1.0
 
 ---
 
@@ -56,3 +58,4 @@ Diferencia: `|(-1.7976931348623157E308) - (1.7976931348623157E308)|` = ∞
 
 **Resultado de Consola:**
 
+Error de Convergencia: Infinity
