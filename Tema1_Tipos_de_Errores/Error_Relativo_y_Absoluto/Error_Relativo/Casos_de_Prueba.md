@@ -24,7 +24,8 @@ El valor aproximado es muy cercano al verdadero. El error debe ser pequeño.
 
 **Resultado de Consola:**
 
-
+Error Relativo: 0.005
+Error Relativo (%): 0.5%
 
 ---
 
@@ -45,6 +46,8 @@ El valor aproximado es cero. El error relativo será `1.0` o `100%`.
 
 **Resultado de Consola:**
 
+Error Relativo: 1.0
+Error Relativo (%): 100.0%
 
 
 ---
@@ -66,4 +69,6 @@ Excepción o `Infinity` según la JVM.
 
 **Resultado de Consola:**
 
+Error Relativo: Infinity
+Error Relativo (%): Infinity%
 
