@@ -12,12 +12,17 @@ Un **error numérico** es la diferencia entre el valor exacto de una cantidad ma
 
 Entre los errores más comunes que se presentan en métodos numéricos están:
 
-- **Error Absoluto**: Diferencia directa entre el valor verdadero y el aproximado.
-- **Error Relativo**: Error absoluto dividido por el valor verdadero.
-- **Error de Cancelación**: Pérdida de cifras significativas al restar dos números muy cercanos.
-- **Error de Redondeo**: Error introducido al redondear un número a un número limitado de cifras decimales.
-- **Error de Truncamiento**: Error que se produce al eliminar parte de la expansión decimal sin redondear.
-- **Error de Convergencia**: Diferencia entre iteraciones sucesivas en métodos iterativos, usado para estimar el progreso hacia la solución.
+- **[Error Relativo](Error_Relativo_y_Absoluto/Error_Relativo)**: Diferencia directa entre el valor verdadero y el aproximado.
+    
+- **[Error Absoluto](Error_Relativo_y_Absoluto/Error_Absoluto)**: Error absoluto dividido por el valor verdadero.
+
+- **[Error de Cancelación](Otros_Tipos_de_Errores/Error_de_Cancelacion)**: Pérdida de cifras significativas al restar dos números muy cercanos.
+
+- **[Error de Redondeo](Otros_Tipos_de_Errores/Error_de_Redondeo)**: Error introducido al redondear un número a un número limitado de cifras decimales.
+
+- **[Error de Truncamiento](Otros_Tipos_de_Errores/Error_de_Truncamiento)**: Error que se produce al eliminar parte de la expansión decimal sin redondear.
+
+- **[Error de Convergencia](Otros_Tipos_de_Errores/Error_de_Convergencia/)**: Diferencia entre iteraciones sucesivas en métodos iterativos, usado para estimar el progreso hacia la solución.
 
 ## Conceptos clave
 
