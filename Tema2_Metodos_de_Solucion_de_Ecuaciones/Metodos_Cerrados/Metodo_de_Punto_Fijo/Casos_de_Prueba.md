@@ -21,7 +21,10 @@ La función `g(x)` está bien construida y cumple con la condición de convergen
 
 **Resultado esperado (parcial):**
 
-
+Iteración 1: x=0.583333, error=0.083333
+...
+Iteración 17: x=1.000000, error=0.000000
+Raíz aproximada encontrada en x = 1.000000 con tolerancia 0.000001
 
 
 ---
@@ -48,3 +51,8 @@ public static double g(double x) {
 La función 'g(x) = x² + 1' tiene derivada 'g(x) = 2x,' que para 'x=0.5 da 1.0', pero rápidamente crece por encima de 1. Esto hace que el método diverja.
 
 **Resultado esperado:**
+
+Iteración 1: x=1.250000, error=0.750000
+Iteración 2: x=2.562500, error=1.312500
+...
+Se alcanzó el máximo de iteraciones. Última aproximación: x = valor grande
