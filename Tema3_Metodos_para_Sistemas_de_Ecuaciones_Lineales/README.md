@@ -31,11 +31,11 @@ En este proyecto, se abordarán varios de los métodos más utilizados para reso
 ### **Métodos Directos**
 Estos métodos encuentran la solución en un número finito de operaciones (en teoría, sin iteraciones).
 
-#### **Eliminación Gaussiana**
+#### **[Eliminación Gaussiana](/Tema3_Metodos_para_Sistemas_de_Ecuaciones_Lineales/Metodos_Directos/Metodo_de_Eliminacion_Gausiana)**
 - Transforma el sistema a una forma triangular superior mediante operaciones elementales.
 - Se resuelve luego por sustitución hacia atrás.
 
-#### **Método de Gauss-Jordan**
+#### **[Método de Gauss-Jordan](/Tema3_Metodos_para_Sistemas_de_Ecuaciones_Lineales/Metodos_Directos/Metodo_de_Gauss-Jordan)**
 - Variante de la eliminación gaussiana.
 - Lleva la matriz a una forma diagonal o identidad.
 - Da la solución directamente sin necesidad de sustitución.
@@ -45,11 +45,11 @@ Estos métodos encuentran la solución en un número finito de operaciones (en t
 ### **Métodos Iterativos**
 Estos métodos generan una secuencia de aproximaciones sucesivas hasta alcanzar una solución con el error deseado.
 
-#### **Método de Jacobi**
+#### **[Método de Jacobi](/Tema3_Metodos_para_Sistemas_de_Ecuaciones_Lineales/Metodos_Iterativos/Metodo_de_Jacobi)**
 - Calcula nuevas aproximaciones usando únicamente valores de la iteración anterior.
 - Requiere que la matriz sea diagonalmente dominante para garantizar convergencia.
 
-#### **Método de Gauss-Seidel**
+#### **[Método de Gauss-Seidel](/Tema3_Metodos_para_Sistemas_de_Ecuaciones_Lineales/Metodos_Iterativos/Metodo_de_Gauss-Seidel)**
 - Similar a Jacobi, pero utiliza de inmediato los valores recién calculados en cada paso.
 - Generalmente converge más rápido que Jacobi bajo las mismas condiciones.
 
