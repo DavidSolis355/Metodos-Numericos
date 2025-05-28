@@ -22,7 +22,9 @@ Encuentra la raíz de la función `f(x) = x³ - x - 2` en el intervalo `[1, 2]`.
 
 **Resultado esperado (parcial):**
 
-
+Iteración 1: a=1.000000, b=2.000000, c=1.333333, f(c)=-0.962963
+...
+Raíz aproximada encontrada en x = 1.521380 con tolerancia 0.000001
 
 ---
 
@@ -41,3 +43,5 @@ double b = 3;
 'f(2) = 4, f(3) = 22', ambos valores son positivos, por lo tanto 'f(a) * f(b) > 0'. El método no es aplicable.
 
 **Resultado esperado:**
+
+No se puede aplicar el método: f(a) * f(b) ≥ 0
