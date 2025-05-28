@@ -31,27 +31,27 @@ Cada uno tiene diferentes características, ventajas y limitaciones que los hace
 
 ## **Métodos Abordados**
 
-### **Método de Bisección**
+### [**Método de Bisección**](Metodos_Abiertos/Metodo_de_Biseccion)
 - Divide el intervalo a la mitad en cada iteración.
 - Garantiza convergencia si la función cambia de signo.
 - Convergencia lenta pero segura.
 
-### **Método de Regla Falsa**
+### [**Método de Regla Falsa**](Metodos_Abiertos/Metodo_de_Regla_Falsa)
 - Similar a bisección, pero utiliza una línea secante entre los extremos.
 - Más rápido que la bisección en muchos casos.
 - Puede atascarse si la función es muy inclinada en uno de los extremos.
 
-### **Método de Newton-Raphson**
+### [**Método de Newton-Raphson**](Metodos_Cerrados/Metodo_de_Newton_Raphson)
 - Usa la derivada de la función para aproximar la raíz.
 - Convergencia rápida si la aproximación inicial es buena.
 - Requiere que la función sea derivable y la derivada no sea cero cerca de la raíz.
 
-### **Método de Punto Fijo**
+### [**Método de Punto Fijo**](Metodos_Cerrados/Metodo_de_Punto_Fijo)
 - Reescribe la ecuación en la forma \( x = g(x) \).
 - Itera aplicando la función \( g \).
 - Convergencia depende de las propiedades de \( g(x) \).
 
-### **Método de la Secante**
+### [**Método de la Secante**](Metodos_Cerrados/Metodo_de_Secante/)
 - No requiere derivadas.
 - Utiliza dos aproximaciones iniciales y una línea secante.
 - Convergencia superlineal, más rápido que bisección pero menos que Newton-Raphson.
