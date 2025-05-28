@@ -50,3 +50,106 @@ $$
 Si se define una tolerancia de 0.001, todavía se necesitan más iteraciones.
 
 ---
+
+### [Codigo en Java](ErrorConvergencia.java)
+
+```java
+
+// Clase que permite calcular el error de convergencia entre iteraciones numéricas
+public class ErrorConvergencia {
+
+     /**
+     * Calcula el error de convergencia entre dos iteraciones consecutivas.
+     * Este error se usa comúnmente en métodos numéricos para determinar si se ha alcanzado una solución aceptable.
+     *
+     * @param iteracionActual     valor actual de la iteración
+     * @param iteracionAnterior   valor anterior de la iteración
+     * @return                    diferencia absoluta entre ambas iteraciones
+     */
+    public static double calcularErrorConvergencia(double iteracionActual, double iteracionAnterior) {
+        return Math.abs(iteracionActual - iteracionAnterior);
+    }
+
+    public static void main(String[] args) {
+
+        // Valor de la iteración anterior (por ejemplo, xₙ₋₁)
+        double xAnterior = 1.5000;
+
+        // Valor de la iteración actual (por ejemplo, xₙ)
+        double xActual = 1.4975;
+
+        // Se calcula el error de convergencia entre ambas iteraciones
+        double errorConvergencia = calcularErrorConvergencia(xActual, xAnterior);
+
+        // Se imprime el resultado del error de convergencia
+        System.out.println("Error de Convergencia: " + errorConvergencia);
+
+    }
+
+}
+
+```
+
+### [Caso de Prueba](Casos_de_Prueba) 
+
+# Casos de Prueba – Error de Convergencia
+
+Este documento contiene tres casos de prueba para comprobar el cálculo del error de convergencia entre dos iteraciones numéricas consecutivas.
+
+- ✅ 2 casos válidos que ilustran convergencia.
+- ❌ 1 caso con comportamiento extremo (Infinity).
+
+---
+
+## ✅ Caso de Prueba 1 – Iteraciones cercanas
+
+**Entrada:**
+
+- `iteracionAnterior = 1.5000`
+- `iteracionActual = 1.4975`
+
+**Resultado Esperado:**
+
+Error de convergencia: `|1.4975 - 1.5000| = 0.0025`
+
+**Resultado de Consola:**
+
+Error de Convergencia: 0.0025000000000000577
+
+---
+
+## ✅ Caso de Prueba 2 – Mayor diferencia
+
+**Entrada:**
+
+- `iteracionAnterior = 2.0000`
+- `iteracionActual = 1.0000`
+
+**Resultado Esperado:**
+
+Error de convergencia: `|1.0000 - 2.0000| = 1.0`
+
+**Resultado de Consola:**
+
+Error de Convergencia: 1.0
+
+---
+
+## ❌ Caso de Prueba 3 – Valores extremos
+
+**Entrada:**
+
+- `iteracionAnterior = Double.MAX_VALUE`
+- `iteracionActual = -Double.MAX_VALUE`
+
+**Descripción:**
+
+Cálculo de la diferencia entre valores máximos opuestos provoca un resultado de infinito.
+
+**Resultado Esperado:**
+
+Diferencia: `|(-1.7976931348623157E308) - (1.7976931348623157E308)|` = ∞
+
+**Resultado de Consola:**
+
+Error de Convergencia: Infinity
