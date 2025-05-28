@@ -20,6 +20,10 @@ El intervalo inicial está cerca de la raíz `x = 1`, y la función es continua 
 
 **Resultado esperado (salida parcial):**
 
+Iteración 1: x=2.000000, error=1.000000
+Iteración 2: x=1.000000, error=1.000000
+Iteración 3: x=1.000000, error=0.000000
+Raíz aproximada encontrada en x = 1.000000 con tolerancia 0.000001
 
 ---
 
@@ -39,4 +43,5 @@ Si `x0 == x1`, entonces `f(x1) - f(x0) = 0`, lo que causa una división por cero
 
 **Resultado esperado (salida parcial):**
 
-
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+at MetodoSecante.secante(MetodoSecante.java:X)
