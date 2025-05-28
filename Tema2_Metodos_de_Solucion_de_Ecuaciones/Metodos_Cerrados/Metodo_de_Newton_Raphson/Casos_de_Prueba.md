@@ -21,7 +21,9 @@ La función tiene una raíz real cercana a `x = 1.521`, y su derivada `f'(x) = 3
 
 **Resultado esperado (parcial):**
 
-
+Iteración 1: x=1.521739, f(x)=-0.002058
+Iteración 2: x=1.521380, f(x)=-0.000001
+Raíz aproximada encontrada en x = 1.521380 con tolerancia 0.000001
 
 ---
 
@@ -39,3 +41,5 @@ double x0 = 0.57735; // Aproximación inicial donde f'(x) ≈ 0 (ya que f'(x) = 
 La derivada ?f'(x) se anula en x = ±1/√3 ≈ 0.57735', por lo tanto el método detiene la ejecución.
 
 **Resultado esperado:**
+
+Derivada cero. No se puede continuar.
