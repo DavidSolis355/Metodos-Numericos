@@ -143,3 +143,195 @@ x = 4, \quad y = \frac{2}{3}, \quad z = \frac{11}{3}
 $$
 
 ---
+
+### [Codigo en Java](GaussJordan.java)
+
+```java
+
+import java.util.Scanner;
+import java.util.Random;
+
+// Clase que implementa el método de Gauss-Jordan para resolver sistemas de ecuaciones lineales
+public class GaussJordan {
+
+    // Método principal para ejecutar el algoritmo de Gauss-Jordan
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // Solicita al usuario el tamaño del sistema (número de ecuaciones y variables)
+        System.out.print("Introduce el tamaño de la matriz: ");
+        int orden = sc.nextInt();
+        
+        // Genera aleatoriamente una matriz aumentada de tamaño [orden x (orden + 1)]
+        double[][] matriz = generarMatriz(orden);
+        
+        // Muestra la matriz inicial
+        System.out.println("\nMatriz inicial:");
+        mostrarMatriz(matriz, orden);
+
+        // Proceso de eliminación de Gauss-Jordan
+        for (int i = 0; i < orden; i++) {
+            // Elige el pivote (elemento diagonal)
+            double pivote = matriz[i][i];
+
+            // Verifica si el pivote es cero, lo cual causaría una división por cero
+            if (pivote == 0) {
+                System.out.println("Error: pivote cero.");
+                return;
+            }
+            // Normaliza la fila dividiendo por el pivote
+            System.out.printf("\nNormalizando fila %d (dividir entre %.3f):\n", i + 1, pivote);
+            for (int j = 0; j < orden + 1; j++) {
+                matriz[i][j] /= pivote;
+            }
+            // Muestra el estado de la matriz después de la normalización
+            mostrarMatriz(matriz, orden);
+            
+            // Elimina los elementos debajo y encima del pivote para hacer la matriz diagonal
+            for (int k = 0; k < orden; k++) {
+                if (k != i) {
+                    double factor = matriz[k][i];
+                    System.out.printf("Haciendo cero el elemento en fila %d, columna %d (usando fila %d):\n", k + 1, i + 1, i + 1);
+                    for (int j = 0; j < orden + 1; j++) {
+                        matriz[k][j] -= factor * matriz[i][j];
+                    }
+                    // Muestra el estado de la matriz después de la eliminación
+                    mostrarMatriz(matriz, orden);
+                }
+            }
+        }
+        
+        // Muestra la solución final, que estará en la última columna de la matriz
+        System.out.println("Solución final:");
+        for (int i = 0; i < orden; i++) {
+            System.out.printf("x%d = %.3f\n", i, matriz[i][orden]);
+        }
+        
+        // Cierra el escáner
+        sc.close();
+    }
+
+    /**
+     * Genera una matriz aumentada aleatoria de tamaño n x (n+1).
+     * La matriz contiene coeficientes aleatorios entre -5 y 4.
+     *
+     * @param orden número de ecuaciones (y variables)
+     * @return matriz aumentada generada aleatoriamente
+     */
+    public static double[][] generarMatriz(int orden) {
+        Random rand = new Random();
+        double[][] matriz = new double[orden][orden + 1];
+        
+        for (int i = 0; i < orden; i++) {
+            for (int j = 0; j < orden + 1; j++) {
+                matriz[i][j] = rand.nextInt(10) - 5;
+            }
+        }
+        
+        return matriz;
+    }
+
+     /**
+     * Muestra la matriz aumentada en consola con formato
+     *
+     * @param matriz la matriz a mostrar
+     * @param orden  el número de ecuaciones (filas) de la matriz
+     */
+    public static void mostrarMatriz(double[][] matriz, int orden) {
+        for (int i = 0; i < orden; i++) {
+            String linea = "| ";
+            for (int j = 0; j < orden + 1; j++) {
+                linea += String.format("%8.3f", matriz[i][j]) + " ";
+            }
+            linea += "|";
+            System.out.println(linea);
+        }
+        // Imprime una línea vacía para separar las matrices
+        System.out.println();
+    }
+}
+
+```
+
+### [Caso de Prueba](Casos_de_Prueba) 
+
+# Caso de prueba para el método de Gauss-Jordan 
+
+---
+
+## Matriz aumentada inicial (orden 3)
+
+$$
+\left[
+\begin{array}{ccc|c}
+2 & 1 & -1 & 8 \\
+-3 & -1 & 2 & -11 \\
+-2 & 1 & 2 & -3 \\
+\end{array}
+\right]
+$$
+
+---
+
+## Salida esperada en consola
+
+```java
+
+Introduce el tamaño de la matriz: 3
+
+Matriz inicial:
+| 2.000 1.000 -1.000 8.000 |
+| -3.000 -1.000 2.000 -11.000 |
+| -2.000 1.000 2.000 -3.000 |
+
+Normalizando fila 1 (dividir entre 2.000):
+| 1.000 0.500 -0.500 4.000 |
+| -3.000 -1.000 2.000 -11.000 |
+| -2.000 1.000 2.000 -3.000 |
+
+Haciendo cero el elemento en fila 2, columna 1 (usando fila 1):
+| 1.000 0.500 -0.500 4.000 |
+| 0.000 0.500 0.500 1.000 |
+| -2.000 1.000 2.000 -3.000 |
+
+Haciendo cero el elemento en fila 3, columna 1 (usando fila 1):
+| 1.000 0.500 -0.500 4.000 |
+| 0.000 0.500 0.500 1.000 |
+| 0.000 2.000 1.000 5.000 |
+
+Normalizando fila 2 (dividir entre 0.500):
+| 1.000 0.500 -0.500 4.000 |
+| 0.000 1.000 1.000 2.000 |
+| 0.000 2.000 1.000 5.000 |
+
+Haciendo cero el elemento en fila 1, columna 2 (usando fila 2):
+| 1.000 0.000 -1.500 3.000 |
+| 0.000 1.000 1.000 2.000 |
+| 0.000 2.000 1.000 5.000 |
+
+Haciendo cero el elemento en fila 3, columna 2 (usando fila 2):
+| 1.000 0.000 -1.500 3.000 |
+| 0.000 1.000 1.000 2.000 |
+| 0.000 0.000 -1.000 1.000 |
+
+Normalizando fila 3 (dividir entre -1.000):
+| 1.000 0.000 -1.500 3.000 |
+| 0.000 1.000 1.000 2.000 |
+| 0.000 0.000 1.000 -1.000 |
+
+Haciendo cero el elemento en fila 1, columna 3 (usando fila 3):
+| 1.000 0.000 0.000 1.500 |
+| 0.000 1.000 1.000 2.000 |
+| 0.000 0.000 1.000 -1.000 |
+
+Haciendo cero el elemento en fila 2, columna 3 (usando fila 3):
+| 1.000 0.000 0.000 1.500 |
+| 0.000 1.000 0.000 3.000 |
+| 0.000 0.000 1.000 -1.000 |
+
+Solución final:
+x0 = 1.500
+x1 = 3.000
+x2 = -1.000
+
+```
