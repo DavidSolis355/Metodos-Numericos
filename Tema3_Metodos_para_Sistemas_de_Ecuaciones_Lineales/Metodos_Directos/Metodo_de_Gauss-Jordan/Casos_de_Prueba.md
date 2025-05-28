@@ -18,6 +18,8 @@ $$
 
 ## Salida esperada en consola
 
+```java
+
 Introduce el tamaño de la matriz: 3
 
 Matriz inicial:
@@ -74,3 +76,5 @@ Solución final:
 x0 = 1.500
 x1 = 3.000
 x2 = -1.000
+
+```
