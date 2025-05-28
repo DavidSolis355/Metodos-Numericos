@@ -291,6 +291,7 @@ $$
 
 ### Resultados de Consola:
 
+```java
 Haciendo cero el elemento en fila 2, columna 1 (usando fila 1):
 Factor de eliminacion = -1.500
 | 2.000 1.000 -1.000 8.000 |
@@ -319,4 +320,5 @@ x0 = 3.000
 x1 = 2.000
 x2 = 1.000
 
+```
 
