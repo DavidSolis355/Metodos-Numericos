@@ -91,3 +91,186 @@ $$
 Se continúa iterando hasta que los valores se estabilicen dentro de una tolerancia aceptable.
 
 ---
+
+### [Codigo en Java](Jacobi.java)
+
+```java
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class Jacobi {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Introduce el tamaño de la matriz: ");
+        int orden = sc.nextInt();
+
+        double[][] matriz = generarMatriz(orden);
+
+        System.out.println("\nMatriz inicial:");
+        mostrarMatriz(matriz, orden);
+
+        double[] x = new double[orden]; 
+        double[] xNuevo = new double[orden]; 
+        double tolerancia = 1e-6;
+        int iteracionesMax = 100;
+        int iteracion = 0;
+        boolean converge = false;
+
+        while (!converge && iteracion < iteracionesMax) {
+            System.out.printf("\nIteración %d:\n", iteracion + 1);
+
+            for (int i = 0; i < orden; i++) {
+                double suma = 0;
+                for (int j = 0; j < orden; j++) {
+                    if (j != i) {
+                        suma += matriz[i][j] * x[j];
+                    }
+                }
+                xNuevo[i] = (matriz[i][orden] - suma) / matriz[i][i];
+                System.out.printf("x%d = %.6f\n", i, xNuevo[i]);
+            }
+
+            converge = true;
+            for (int i = 0; i < orden; i++) {
+                if (Math.abs(xNuevo[i] - x[i]) > tolerancia) {
+                    converge = false;
+                    break;
+                }
+            }
+
+            System.arraycopy(xNuevo, 0, x, 0, orden);
+            iteracion++;
+        }
+
+        if (converge) {
+            System.out.println("\nSolución encontrada:");
+            for (int i = 0; i < orden; i++) {
+                System.out.printf("x%d = %.6f\n", i, x[i]);
+            }
+        } else {
+            System.out.println("\nNo se alcanzó la convergencia en " + iteracionesMax + " iteraciones.");
+        }
+
+        sc.close();
+    }
+
+    public static double[][] generarMatriz(int orden) {
+        Random rand = new Random();
+        double[][] matriz = new double[orden][orden + 1];
+
+        for (int i = 0; i < orden; i++) {
+            for (int j = 0; j < orden + 1; j++) {
+                matriz[i][j] = rand.nextInt(10) - 5; 
+            }
+            if (matriz[i][i] == 0) {
+                matriz[i][i] = rand.nextInt(5) + 1;
+            }
+        }
+
+        return matriz;
+    }
+
+    public static void mostrarMatriz(double[][] matriz, int orden) {
+         for (int i = 0; i < orden; i++) {
+            String linea = "| ";
+            for (int j = 0; j < orden + 1; j++) {
+                linea += String.format("%8.3f", matriz[i][j]) + " ";
+            }
+            linea += "|";
+            System.out.println(linea);
+        }
+        System.out.println();
+    }
+}
+
+```
+
+### [Caso de Prueba](Casos_de_Prueba) 
+
+# Ejemplo de ejecución del método de Jacobi
+
+---
+
+## Matriz aumentada (orden 3)
+
+Usamos esta matriz manualmente para asegurar convergencia:
+
+$$
+\left[
+\begin{array}{ccc|c}
+4 & 1 & 2 & 4 \\
+3 & 5 & 1 & 7 \\
+1 & 1 & 3 & 3 \\
+\end{array}
+\right]
+$$
+
+---
+
+## Modificaciones necesarias en el código
+
+Reemplazar el método `generarMatriz()` por:
+
+```java
+public static double[][] generarMatriz(int orden) {
+    return new double[][] {
+        {4, 1, 2, 4},
+        {3, 5, 1, 7},
+        {1, 1, 3, 3}
+    };
+}
+```
+
+### Salida en Consola
+
+```java
+
+Introduce el tamaño de la matriz: 3
+
+Matriz inicial:
+|    4.000    1.000    2.000    4.000 |
+|    3.000    5.000    1.000    7.000 |
+|    1.000    1.000    3.000    3.000 |
+
+Iteración 1:
+x0 = 1.000000
+x1 = 1.400000
+x2 = 1.000000
+
+Iteración 2:
+x0 = 0.050000
+x1 = 0.600000
+x2 = 0.200000
+
+Iteración 3:
+x0 = 0.750000
+x1 = 1.150000
+x2 = 0.717000
+
+Iteración 4:
+x0 = 0.354000
+x1 = 0.600000
+x2 = 0.366667
+
+...
+
+Iteración 19:
+x0 = 0.533339
+x1 = 0.866667
+x2 = 0.533329
+
+Iteración 20:
+x0 = 0.533333
+x1 = 0.866667
+x2 = 0.533333
+
+Solución encontrada:
+x0 = 0.533333  
+x1 = 0.866667  
+x2 = 0.533333
+
+
+```
