@@ -28,3 +28,28 @@ donde \(h = \frac{b - a}{n}\).
 
 ## Entrada simulada en consola
 
+```java
+
+Introduzca la función (use 'x' como variable, ej: exp(x)*cos(x)):
+cos(x)
+Introduzca el límite inferior de integración (a):
+0
+Introduzca el límite superior de integración (b):
+1.57079632679
+Introduzca el número de subintervalos (n):
+4
+
+```
+
+---
+
+## Resultado esperado
+
+```java
+
+RESULTADO:
+La integral de f(x) en el intervalo [0.0000, 1.5708] ≈ 0.998570731821
+Fórmula utilizada: Regla del Trapecio
+
+```
+
