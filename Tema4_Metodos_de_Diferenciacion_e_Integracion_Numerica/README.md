@@ -1,109 +1,72 @@
 # **Métodos de Diferenciación e Integración Numérica**
 
 ## **Introducción**
-La **diferenciación** e **integración** son dos de las operaciones fundamentales en el cálculo. Estas operaciones tienen aplicaciones en diversas áreas, como la física, la ingeniería, la economía y la informática. Sin embargo, en muchos casos, las soluciones exactas de ecuaciones que involucran derivadas o integrales son difíciles de obtener, especialmente cuando las funciones no tienen una forma cerrada o no son fáciles de resolver de manera analítica.
+En el análisis de funciones y datos reales, muchas veces no se dispone de una fórmula exacta para derivar o integrar. Es aquí donde los **métodos numéricos** resultan esenciales para obtener aproximaciones útiles y precisas.
 
-En estos casos, los **métodos numéricos** proporcionan una solución aproximada que permite obtener resultados prácticos sin la necesidad de resolver ecuaciones complejas de forma exacta. Los métodos de **diferenciación** y **integración numérica** son herramientas clave para obtener aproximaciones a las derivadas e integrales de funciones en diversos contextos.
+Los **métodos de diferenciación e integración numérica** permiten calcular derivadas e integrales de funciones conocidas solo en puntos discretos, mediante fórmulas que utilizan evaluaciones puntuales y ponderaciones específicas.
 
-### **Métodos de Diferenciación**
-La **diferenciación numérica** se utiliza para aproximar la derivada de una función en un punto, especialmente cuando no se tiene la expresión analítica de la derivada. A través de estos métodos, podemos obtener la tasa de cambio de una función en una posición dada.
-
-Algunos de los métodos de diferenciación más comunes incluyen:
-
-- **Método de la Diferencia Adelante**: Aproxima la derivada de una función utilizando el valor de la función en el punto actual y en un punto cercano a la derecha.
-- **Método de la Diferencia Central**: Usa los valores de la función a la izquierda y a la derecha del punto para obtener una aproximación más precisa de la derivada.
-- **Método de la Diferencia Atrás**: Calcula la derivada utilizando el valor de la función en el punto actual y en un punto cercano a la izquierda.
-
-Estos métodos son particularmente útiles cuando no es posible obtener la derivada exacta de una función, pero se tienen suficientes puntos cercanos para hacer una estimación razonable.
-
-### **Métodos de Integración**
-La **integración numérica** se emplea para calcular el valor de una integral definida cuando la función es compleja o no tiene una forma sencilla para ser integrada analíticamente. Estos métodos aproximan el área bajo la curva de la función en un intervalo dado.
-
-Algunos de los métodos de integración más utilizados incluyen:
-
-- **Regla del Trapecio**: Aproxima el área bajo la curva dividiendo el intervalo de integración en trapecios, sumando sus áreas. Es un método sencillo pero eficiente.
-- **Regla de Simpson**: Usa un polinomio de segundo grado para aproximar la integral. Existen variantes, como la regla de Simpson de 1/3 y de 3/8, que mejoran la precisión al usar diferentes números de puntos de evaluación.
-- **Método de Cuadratura Gaussiana**: Se utiliza para aproximar integrales de funciones más complicadas mediante la evaluación de la función en puntos específicos llamados nodos de Gauss, lo que ofrece una mayor precisión en comparación con otros métodos más simples.
+Estos métodos son ampliamente utilizados en ingeniería, física, estadística y simulaciones computacionales, especialmente cuando el tratamiento analítico es inviable.
 
 ---
 
-## **Importancia de los Métodos de Diferenciación e Integración Numérica**
-- **Diferenciación y Integración** son esenciales para modelar fenómenos físicos y matemáticos que involucran tasas de cambio (derivadas) y áreas bajo curvas (integrales).
-- En muchos casos, las funciones no son fáciles de derivar o integrar analíticamente, y se requieren aproximaciones numéricas para obtener soluciones rápidas.
-- Los **métodos numéricos** permiten resolver problemas complejos en áreas como la dinámica de fluidos, la economía, la ingeniería estructural, la biología matemática, entre otros.
-- Ofrecen una forma eficiente de obtener resultados que son útiles para simulaciones, optimización y análisis de sistemas cuando las soluciones exactas no son viables o son demasiado costosas computacionalmente.
+## **Conceptos Básicos**
+- **Diferenciación numérica:** Aproximación de la derivada de una función usando valores conocidos de dicha función.
+- **Integración numérica:** Cálculo aproximado del área bajo una curva definida por una función, mediante sumas ponderadas de valores de la función.
+- **Paso o intervalo \( h \):** Distancia entre los puntos discretos usados en las fórmulas.
+- **Error de truncamiento:** Diferencia entre el valor exacto y la aproximación numérica debido a la omisión de términos en una expansión.
+
+---
+
+## **Importancia de estos Métodos**
+- Útiles cuando no se puede obtener una derivada o integral exacta.
+- Facilitan cálculos computacionales sobre grandes volúmenes de datos.
+- Permiten resolver problemas reales basados en observaciones experimentales o simuladas.
 
 ---
 
 ## **Métodos Abordados**
 
-### **Métodos de Diferenciación**
-Estos métodos nos permiten aproximar la derivada de una función en puntos específicos a partir de valores cercanos.
+### **Diferenciación Numérica**
 
-#### **Diferencia Adelante**
-- Utiliza el valor de la función en el punto actual y en un punto cercano a la derecha.
-- Aproximación:
+#### **[Método de los 3 puntos](/Tema4_Metodos_de_Diferenciacion_e_Integracion_Numerica/Metodos_de_Diferenciacion_Numerica/Metodo_de_los_3_Puntos/)**
+- Utiliza tres puntos consecutivos para aproximar derivadas.
+- Hay fórmulas para derivada hacia adelante, hacia atrás y centrada.
+- Adecuado para puntos internos y extremos de una tabla de datos.
 
-$$
-f'(x) \approx \frac{f(x+h) - f(x)}{h}
-$$
-
-#### **Diferencia Central**
-- Utiliza los valores de la función a la izquierda y a la derecha del punto para obtener una estimación más precisa de la derivada.
-- Aproximación:
-
-$$
-f'(x) \approx \frac{f(x+h) - f(x-h)}{2h}
-$$
-
-#### **Diferencia Atrás**
-- Utiliza el valor de la función en el punto actual y en un punto cercano a la izquierda.
-- Aproximación:
-
-$$
-f'(x) \approx \frac{f(x) - f(x-h)}{h}
-$$
+#### **[Método de los 5 puntos](/Tema4_Metodos_de_Diferenciacion_e_Integracion_Numerica/Metodos_de_Diferenciacion_Numerica/Metodo_de_los_5_Puntos/)**
+- Utiliza cinco puntos para obtener una derivada más precisa.
+- Solo aplica a puntos interiores del dominio.
+- Reduce el error en comparación con el método de 3 puntos.
 
 ---
 
-### **Métodos de Integración**
-Estos métodos nos permiten aproximar el valor de una integral definida cuando no se puede obtener una solución exacta de manera analítica.
+### **Integración Numérica**
 
-#### **Regla del Trapecio**
-- Divide el área bajo la curva en trapecios y calcula la suma de sus áreas.
-- Aproximación:
+#### **[Método del Trapecio](/Tema4_Metodos_de_Diferenciacion_e_Integracion_Numerica/Metodos_de_Integracion_Numerica/Regla_del_Trapecio)**
+- Aproxima el área bajo la curva mediante trapecios.
+- Simple y eficiente, aunque menos preciso que Simpson para funciones curvas.
+- Puede aplicarse a múltiples subintervalos (regla compuesta).
 
-$$
-\int_a^b f(x) \, dx \approx \frac{h}{2} \left( f(a) + 2 \sum_{i=1}^{n-1} f(x_i) + f(b) \right)
-$$
+#### **[Método de Simpson 1/3](/Tema4_Metodos_de_Diferenciacion_e_Integracion_Numerica/Metodos_de_Integracion_Numerica/Regla_de_Simpson_1\3/)**
+- Usa parábolas (polinomios de segundo grado) para ajustar la curva.
+- Requiere un número par de subintervalos.
+- Más preciso que el método del trapecio para funciones suaves.
 
-#### **Regla de Simpson 1/3**
-- Utiliza un polinomio de segundo grado para aproximar la integral, evaluando la función en tres puntos.
-- Aproximación:
+#### **[Método de Simpson 3/8](/Tema4_Metodos_de_Diferenciacion_e_Integracion_Numerica/Metodos_de_Integracion_Numerica/Regla_de_Simpson_3\8/)**
+- Usa tres segmentos y un polinomio cúbico.
+- Apto cuando el número de subintervalos no es múltiplo de 2 pero sí de 3.
+- Mayor precisión en algunos casos respecto al 1/3.
 
-$$
-\int_a^b f(x) \, dx \approx \frac{h}{3} \left( f(a) + 4 \sum_{i=1}^{n/2} f(x_{2i-1}) + 2 \sum_{i=1}^{n/2-1} f(x_{2i}) + f(b) \right)
-$$
-
-#### **Regla de Simpson 3/8**
-- Similar a la de 1/3, pero utiliza un polinomio de tercer grado para aproximar la integral.
-- Aproximación:
-
-$$
-\int_a^b f(x) \, dx \approx \frac{3h}{8} \left( f(a) + 3 \sum_{i=1,3,5,\dots} f(x_i) + 3 \sum_{i=2,4,6,\dots} f(x_i) + f(b) \right)
-$$
-
-#### **Cuadratura Gaussiana**
-- Evalúa la función en nodos específicos de Gauss para proporcionar una aproximación más precisa que la de los métodos de aproximación sencilla.
-- Este método es altamente eficiente y preciso, especialmente cuando la función es complicada o el intervalo de integración es muy grande.
+#### **[Cuadratura Gaussiana](/Tema4_Metodos_de_Diferenciacion_e_Integracion_Numerica/Metodos_de_Integracion_Numerica/Cuadratica_Gaussiana)**
+- Integra funciones usando puntos y pesos óptimos.
+- No requiere que los puntos estén equidistantes.
+- Muy eficiente y preciso, especialmente con pocos puntos.
 
 ---
 
 ## **Notas Finales**
-- Los **métodos de diferenciación** son útiles para encontrar las tasas de cambio de las funciones y se aplican en problemas de optimización, control y análisis dinámico.
-- Los **métodos de integración** son esenciales para calcular áreas bajo curvas y resolver ecuaciones diferenciales, y son ampliamente utilizados en simulaciones físicas, análisis de datos y modelado matemático.
-- La elección de un método depende de la función que se desea analizar, la precisión requerida y los recursos computacionales disponibles.
+- Elegir el método adecuado depende de la forma de la función, la cantidad de datos y la precisión deseada.
+- Métodos como **Simpson y Gaussiana** ofrecen alta precisión con menos evaluaciones.
+- En cambio, **trapecio y métodos de puntos** son simples y robustos, ideales para datos experimentales o cálculos rápidos.
 
---- 
-
-Este enfoque numérico en diferenciación e integración permite a los ingenieros, científicos y matemáticos abordar problemas prácticos que, de otro modo, serían difíciles de resolver de manera exacta.
+---
