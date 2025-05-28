@@ -30,3 +30,30 @@ $$
 
 ## Salida de Consola
 
+
+```java
+
+INTEGRACIÓN NUMÉRICA (CUADRATURA GAUSSIANA)
+Introduzca la función (use 'x' como variable, ej: exp(x)*cos(x)):
+exp(-x^2)
+Introduzca el límite inferior de integración (a):
+0
+Introduzca el límite superior de integración (b):
+1
+
+```
+
+---
+
+## Resultado esperado
+
+
+```java
+
+RESULTADO:
+La integral de f(x) en el intervalo [0.0000, 1.0000] ≈ 0.746824132812
+Fórmula utilizada: Cuadratura Gaussiana de 2 puntos
+
+
+```
+
