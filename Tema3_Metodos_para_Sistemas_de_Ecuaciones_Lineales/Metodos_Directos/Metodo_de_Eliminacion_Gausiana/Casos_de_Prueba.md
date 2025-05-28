@@ -4,22 +4,6 @@ Este documento contiene dos casos de prueba para el programa de eliminación gau
 
 ---
 
-## Formato para matrices en Markdown
-
-Las matrices se muestran usando notación LaTeX encerrada entre dobles signos de dólar `$$ ... $$` para que se visualicen como fórmulas matemáticas.
-
-Ejemplo:
-
-$$
-\begin{bmatrix}
-1 & 2 & 3 \\
-4 & 5 & 6 \\
-7 & 8 & 9 \\
-\end{bmatrix}
-$$
-
----
-
 ## Caso 1: Sistema compatible (tiene solución)
 
 ### Matriz aumentada (sistema 3x3)
@@ -40,25 +24,32 @@ $$
 - Matriz no singular, determinante distinto de cero.
 - El método de eliminación gaussiana debe converger a una solución única.
 
----
+### Resultados de Consola:
 
-## Caso 2: Sistema incompatible (sin solución)
+Haciendo cero el elemento en fila 2, columna 1 (usando fila 1):
+Factor de eliminacion = -1.500
+| 2.000 1.000 -1.000 8.000 |
+| 0.000 0.500 0.500 1.000 |
+| -2.000 1.000 2.000 -3.000 |
 
-### Matriz aumentada (sistema 3x3)
+Haciendo cero el elemento en fila 3, columna 1 (usando fila 1):
+Factor de eliminacion = -1.000
+| 2.000 1.000 -1.000 8.000 |
+| 0.000 0.500 0.500 1.000 |
+| 0.000 2.000 1.000 5.000 |
 
-$$
-\left[
-\begin{array}{ccc|c}
-1 & -2 & 3 & 4 \\
-2 & -4 & 6 & 5 \\
--1 & 2 & -3 & -4 \\
-\end{array}
-\right]
-$$
+Haciendo cero el elemento en fila 3, columna 2 (usando fila 2):
+Factor de eliminacion = 4.000
+| 2.000 1.000 -1.000 8.000 |
+| 0.000 0.500 0.500 1.000 |
+| 0.000 0.000 -1.000 1.000 |
 
-### Descripción
+Resolviendo por sustitucion hacia atras:
+x2 = 1.000
+x1 = 2.000
+x0 = 3.000
 
-- Sistema con filas proporcionales en los coeficientes pero con términos independientes distintos.
-- El sistema no tiene solución (incompatible).
-- El método de eliminación gaussiana detectará filas nulas con término independiente no nulo o división por cero en la diagonal.
-
+Solucion final:
+x0 = 3.000
+x1 = 2.000
+x2 = 1.000
