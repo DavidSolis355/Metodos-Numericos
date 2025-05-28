@@ -35,3 +35,9 @@ System.out.println("La derivada aproximada es: " + derivada);
 
 ### Resultado esperado
 
+
+```java
+
+La derivada aproximada es: 1.05
+
+```
