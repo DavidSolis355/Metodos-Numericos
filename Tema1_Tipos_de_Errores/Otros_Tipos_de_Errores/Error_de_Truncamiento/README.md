@@ -54,3 +54,127 @@ $$
 Este es el error de truncamiento debido a truncar la serie después del segundo término.
 
 ---
+
+### [Codigo en Java](ErrorTruncamiento.java)
+
+```java
+
+// Clase que ejemplifica cómo calcular el error de truncamiento al limitar decimales sin redondear
+public class ErrorTruncamiento {
+
+    /**
+     * Trunca un número decimal al número de decimales especificado sin redondear.
+     * Utiliza la función Math.floor para eliminar los decimales restantes.
+     *
+     * @param valor      número original a truncar
+     * @param decimales  cantidad de decimales a conservar
+     * @return           valor truncado como double
+     */
+    public static double truncar(double valor, int decimales) {
+        double factor = Math.pow(10, decimales); // Calcula el factor de escala según los decimales deseados
+        return Math.floor(valor * factor) / factor; // Aplica truncamiento eliminando decimales extra
+    }
+
+     /**
+     * Calcula el error de truncamiento como la diferencia absoluta
+     * entre el valor original y el truncado.
+     *
+     * @param valorOriginal   el valor antes del truncamiento
+     * @param valorTruncado   el valor después del truncamiento
+     * @return                el error de truncamiento
+     */
+    public static double calcularErrorTruncamiento(double valorOriginal, double valorTruncado) {
+        return Math.abs(valorOriginal - valorTruncado);
+    }
+
+    public static void main(String[] args) {
+
+        // Valor original a truncar
+        double valorOriginal = 3.14159265;
+
+        // Número de decimales que se desea conservar
+        int decimales = 4;
+
+        // Se trunca el valor original
+        double valorTruncado = truncar(valorOriginal, decimales);
+
+        // Se calcula el error ocasionado por el truncamiento
+        double errorTruncamiento = calcularErrorTruncamiento(valorOriginal, valorTruncado);
+
+        // Se imprimen los resultados para comparación
+        System.out.println("Valor original: " + valorOriginal);
+        System.out.println("Valor truncado: " + valorTruncado);
+        System.out.println("Error de Truncamiento: " + errorTruncamiento);
+    }
+}
+
+
+```
+
+### [Caso de Prueba](Casos_de_Prueba) 
+
+# Casos de Prueba – Error de Truncamiento
+
+Este documento contiene tres casos de prueba para evaluar el funcionamiento del truncamiento de decimales sin redondear, junto con el cálculo del error de truncamiento.
+
+- ✅ 2 casos correctos
+- ❌ 1 caso con entrada inválida (decimales negativos)
+
+---
+
+## ✅ Caso de Prueba 1 – Truncar a 4 decimales
+
+**Entrada:**
+
+- `valorOriginal = 3.14159265`
+- `decimales = 4`
+
+**Resultado Esperado:**
+
+Valor truncado: `3.1415`  
+Error: `|3.14159265 - 3.1415| = 9.265e-5`
+
+**Resultado de Consola:**
+
+Valor original: 3.14159265
+Valor truncado: 3.1415
+Error de Truncamiento: 9.265000000005342E-5
+
+---
+
+## ✅ Caso de Prueba 2 – Truncar a 2 decimales
+
+**Entrada:**
+
+- `valorOriginal = 2.7182818`
+- `decimales = 2`
+
+**Resultado Esperado:**
+
+Valor truncado: `2.71`  
+Error: `|2.7182818 - 2.71| = 0.0082818`
+
+**Resultado de Consola:**
+
+Valor original: 2.7182818
+Valor truncado: 2.71
+Error de Truncamiento: 0.008281799999999885
+
+---
+
+## ❌ Caso de Prueba 3 – Error con decimales negativos
+
+**Entrada:**
+
+- `valorOriginal = 1.2345`
+- `decimales = -3`
+
+**Descripción:**
+
+Los decimales negativos generan un `factor = 10^(-3) = 0.001`, provocando resultados inesperados o comportamiento inválido en truncamiento.
+
+**Resultado de Consola:**
+
+Valor original: 1.2345
+Valor truncado: 1000.0
+Error de Truncamiento: 998.7655
