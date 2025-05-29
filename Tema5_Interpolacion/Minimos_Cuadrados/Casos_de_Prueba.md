@@ -18,4 +18,19 @@ y predecir los valores de \( y \) usando la recta ajustada.
 
 ```java
 // En este caso, los datos están definidos en el código, no se ingresa nada por consola.
+```
+
+### **Salida en consola**
+
+```java
+
+Ecuación de la recta de regresión: y = 0.6x + 2.2
+Valores predichos de y:
+x = 1, Predicción y = 2.8
+x = 2, Predicción y = 3.4
+x = 3, Predicción y = 4.0
+x = 4, Predicción y = 4.6
+x = 5, Predicción y = 5.2
+
+```
 
