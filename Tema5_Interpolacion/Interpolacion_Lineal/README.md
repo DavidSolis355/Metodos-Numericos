@@ -99,7 +99,7 @@ public class InterpolacionLineal {
 
 ```
 
-### [Caso de Prueba](Casos_de_Prueba) 
+### [Caso de Prueba](Casos_de_Prueba.md) 
 
 ## Caso de Prueba - Interpolación Lineal
 

@@ -168,7 +168,7 @@ public class Correlacion {
 
 ```
 
-### [Caso de Prueba](Casos_de_Prueba)
+### [Caso de Prueba](Casos_de_Prueba.md)
 
 ## Caso de Prueba - Método de Correlación
 

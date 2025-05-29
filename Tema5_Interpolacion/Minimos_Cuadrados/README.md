@@ -143,7 +143,7 @@ public class MetodoMinimosCuadrados {
 
 ```
 
-### [Caso de Prueba](Casos_de_Prueba) 
+### [Caso de Prueba](Casos_de_Prueba.md) 
 
 ## Caso de Prueba - Método de Mínimos Cuadrados
 

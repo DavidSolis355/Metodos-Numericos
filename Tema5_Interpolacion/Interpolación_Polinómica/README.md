@@ -143,7 +143,7 @@ public class InterpolacionPolinomial {
 
 ```
 
-### [Caso de Prueba](Casos_de_Prueba) 
+### [Caso de Prueba](Casos_de_Prueba.md) 
 
 ## Caso de Prueba - Interpolación Polinómica (Lagrange)
 
