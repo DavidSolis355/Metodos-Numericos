@@ -1,133 +1,92 @@
-# Métodos de Solución de Ecuaciones Diferenciales
+# **Métodos Numéricos para Ecuaciones Diferenciales Ordinarias (EDO)**
 
-## Introducción
+## **Introducción**
+Las **Ecuaciones Diferenciales Ordinarias (EDO)** modelan fenómenos donde una variable depende de la tasa de cambio de otra. Dado que muchas EDO no pueden resolverse de forma exacta, se utilizan **métodos numéricos** para obtener soluciones aproximadas.
 
-La solución numérica de ecuaciones diferenciales es fundamental para resolver problemas donde no es posible obtener una solución analítica exacta. Estos métodos aproximan la solución evaluando valores discretos en pasos específicos.
-
-En este tema, exploraremos diferentes métodos para resolver ecuaciones diferenciales:
-
-- Método de 1 Paso
-- Método de Pasos Múltiples
-- Método de Sistemas de Ecuaciones
+Estos métodos calculan soluciones paso a paso, permitiendo obtener valores estimados de la función en puntos discretos, y son ampliamente usados en ingeniería, física, biología y simulaciones computacionales.
 
 ---
 
-## Conceptos Básicos
-
-- **Ecuación diferencial ordinaria (EDO):** Una ecuación que involucra funciones desconocidas y sus derivadas.
-- **Condiciones iniciales:** Valores conocidos de la función y/o sus derivadas en un punto específico, necesarios para comenzar el método numérico.
-- **Paso (h):** Tamaño del incremento en la variable independiente para aproximar la solución.
-
----
-
-## Métodos de Solución de Ecuaciones Diferenciales
-
-### 1. Método de 1 Paso
-
-Los métodos de un paso calculan el valor siguiente usando solo información del punto actual.
-
-#### Método de Euler
-
-Es el método más simple y consiste en aproximar la pendiente en el punto actual y avanzar un paso:
-
-$$
-y_{n+1} = y_n + h f(x_n, y_n)
-$$
-
-**Ventajas:**
-
-- Fácil de implementar.
-- Requiere poco cálculo.
-
-**Desventajas:**
-
-- Baja precisión.
-- Puede ser inestable para pasos grandes.
-
-#### Método de Runge-Kutta de 4to orden (RK4)
-
-Mejora la precisión calculando varias pendientes intermedias:
-
-$$
-\begin{aligned}
-k_1 &= f(x_n, y_n) \\
-k_2 &= f\left(x_n + \frac{h}{2}, y_n + \frac{h}{2}k_1\right) \\
-k_3 &= f\left(x_n + \frac{h}{2}, y_n + \frac{h}{2}k_2\right) \\
-k_4 &= f(x_n + h, y_n + h k_3) \\
-y_{n+1} &= y_n + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)
-\end{aligned}
-$$
-
-**Ventajas:**
-
-- Alta precisión.
-- Estabilidad mejor que Euler.
-
-**Desventajas:**
-
-- Más cálculos por paso.
+## **Conceptos Básicos**
+- **EDO (Ecuación Diferencial Ordinaria):** Relación entre una función desconocida y sus derivadas respecto a una sola variable independiente.
+- **Solución numérica:** Estimación del valor de la función usando algoritmos iterativos.
+- **Tamaño de paso (h):** Intervalo entre los valores de la variable independiente donde se calcula la solución.
+- **Error global/local:** Diferencia acumulada entre la solución exacta y la aproximada.
 
 ---
 
-### 2. Método de Pasos Múltiples
-
-Estos métodos usan valores de pasos anteriores para calcular el siguiente valor, logrando mayor eficiencia.
-
-#### Método de Adams-Bashforth (explícito)
-
-Ejemplo de fórmula para 4 pasos:
-
-$$
-y_{n+1} = y_n + \frac{h}{24} (55 f_n - 59 f_{n-1} + 37 f_{n-2} - 9 f_{n-3})
-$$
-
-Donde \(f_n = f(x_n, y_n)\).
-
-**Ventajas:**
-
-- Menos evaluaciones por paso que RK4.
-- Bueno para problemas suaves.
-
-**Desventajas:**
-
-- Necesita valores iniciales de otros métodos.
-- Puede ser inestable si no se usa correctamente.
-
-#### Método de Adams-Moulton (implícito)
-
-Ejemplo para 3 pasos:
-
-$$
-y_{n+1} = y_n + \frac{h}{24} (9 f_{n+1} + 19 f_n - 5 f_{n-1} + f_{n-2})
-$$
-
-Este método es implícito y requiere resolver una ecuación para \(y_{n+1}\).
+## **Importancia de Resolver EDO Numéricamente**
+- Las soluciones analíticas no siempre existen o son complejas de obtener.
+- Permite modelar fenómenos reales con precisión controlada.
+- Facilita simulaciones y predicciones computacionales.
 
 ---
 
-### 3. Método de Sistemas de Ecuaciones
+## **Métodos Abordados**
 
-Cuando la ecuación diferencial es un sistema de ecuaciones acopladas, se aplican métodos que trabajan con vectores y matrices.
+### **Método de Euler**
 
-Ejemplo para un sistema:
-
-$$
-\frac{d\mathbf{y}}{dx} = \mathbf{f}(x, \mathbf{y})
-$$
-
-Donde
-
-$$
-\mathbf{y} = \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_m \end{bmatrix}, \quad \mathbf{f} = \begin{bmatrix} f_1(x, \mathbf{y}) \\ f_2(x, \mathbf{y}) \\ \vdots \\ f_m(x, \mathbf{y}) \end{bmatrix}
-$$
-
-Se pueden aplicar los métodos mencionados (Euler, Runge-Kutta, etc.) para cada componente vectorial.
+#### **[Método de Euler](/Tema6_Solución_de_ecuaciones_diferenciales/Método_de_Sistemas_de_Ecuaciones/Método_de_Euler)**
+- Método explícito de un solo paso.
+- Calcula la próxima aproximación usando la pendiente en el punto actual.
+- **Fórmula:**  
+  \[
+  y_{n+1} = y_n + h \cdot f(x_n, y_n)
+  \]
+- Es simple y rápido, pero puede ser inexacto si \( h \) no es pequeño.
 
 ---
 
-## Notas Finales
+### **Método de Runge-Kutta de 4to Orden**
 
-- Los métodos de 1 paso son simples pero pueden ser menos precisos o estables.
-- Los métodos de pasos múltiples requieren más información inicial, pero son más eficientes.
-- Para sistemas de ecuaciones, es crucial manejar las variables de forma vectorial.
-- La elección del método depende de la precisión requerida y la naturaleza del problema.
+#### **[Runge-Kutta 4](/Tema6_Solución_de_ecuaciones_diferenciales/Método_de_1_Paso/Método_de_RungeKutta)**
+- Método de un solo paso y alta precisión.
+- Calcula la pendiente promedio usando 4 evaluaciones intermedias.
+- **Fórmula general:**
+  \[
+  y_{n+1} = y_n + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)
+  \]
+  Donde:
+  \[
+  \begin{aligned}
+  k_1 &= f(x_n, y_n) \\
+  k_2 &= f(x_n + h/2, y_n + h/2 \cdot k_1) \\
+  k_3 &= f(x_n + h/2, y_n + h/2 \cdot k_2) \\
+  k_4 &= f(x_n + h, y_n + h \cdot k_3)
+  \end{aligned}
+  \]
+- Excelente balance entre precisión y velocidad de cálculo.
+
+---
+
+### **Método de Adams-Bashforth de 4 Pasos**
+
+#### **[Adams-Bashforth](/Tema6_Solución_de_ecuaciones_diferenciales/Método_de_Pasos_Múltiples/Método_de_AdamsBashforth)**
+- Método explícito de múltiples pasos.
+- Usa los valores de \( f(x, y) \) de puntos anteriores para predecir el siguiente.
+- **Fórmula:**
+  \[
+  y_{n+1} = y_n + \frac{h}{24}(55f_n - 59f_{n-1} + 37f_{n-2} - 9f_{n-3})
+  \]
+- Requiere valores iniciales obtenidos con otro método (generalmente Runge-Kutta).
+- Muy eficiente para grandes cálculos con pasos pequeños.
+
+---
+
+## **Comparación Rápida**
+
+| Método          | Tipo       | Precisión | Ventajas                       | Desventajas                    |
+|----------------|------------|-----------|--------------------------------|--------------------------------|
+| Euler           | Un paso    | Baja      | Simple y fácil de implementar  | Poca precisión                  |
+| Runge-Kutta 4   | Un paso    | Alta      | Preciso sin pasos anteriores   | Más cálculos por iteración     |
+| Adams-Bashforth| Multipasos | Alta      | Rápido en iteraciones largas   | Requiere valores previos        |
+
+---
+
+## **Notas Finales**
+- El método de **Euler** es útil para introducción o problemas simples.
+- **Runge-Kutta 4** es el estándar para soluciones precisas sin complicaciones.
+- **Adams-Bashforth** es excelente cuando se tienen valores previos y se busca eficiencia computacional.
+
+---
+
