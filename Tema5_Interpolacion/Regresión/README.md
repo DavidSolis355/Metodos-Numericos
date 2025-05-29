@@ -70,3 +70,117 @@ Este tema será abordado con ejemplos prácticos y algoritmos que puedes impleme
 ## **Referencias**
 1. Weisberg, S. (2005). "Applied Linear Regression." Wiley-Interscience.
 2. Seber, G. A. F., & Lee, A. J. (2003). "Linear Regression Analysis." Wiley-Interscience.
+
+---
+
+### [Codigo en Java](Regresion.java)
+
+```java
+
+import java.util.Scanner;
+
+public class RegresionLineal {
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("REGRESIÓN LINEAL - MÉTODO DE MÍNIMOS CUADRADOS");
+        System.out.println("--------------------------------------------");
+        
+        // Solicitar el número de puntos de datos
+        System.out.println("Introduzca el número de puntos de datos:");
+        int n = scanner.nextInt();
+        
+        // Arrays para almacenar los valores de x e y
+        double[] x = new double[n];
+        double[] y = new double[n];
+        
+        // Leer los datos de entrada (valores de x e y)
+        System.out.println("Introduzca los valores de x e y:");
+        for (int i = 0; i < n; i++) {
+            System.out.print("x[" + (i+1) + "]: ");
+            x[i] = scanner.nextDouble();
+            System.out.print("y[" + (i+1) + "]: ");
+            y[i] = scanner.nextDouble();
+        }
+        
+        // Cálculos necesarios para el método de mínimos cuadrados
+        double sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
+
+        // Sumar los términos necesarios
+        for (int i = 0; i < n; i++) {
+            sumX += x[i];
+            sumY += y[i];
+            sumXY += x[i] * y[i];
+            sumX2 += x[i] * x[i];
+        }
+        
+        // Calcular los coeficientes m (pendiente) y b (intersección)
+        double m = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+        double b = (sumY - m * sumX) / n;
+        
+        // Mostrar los resultados
+        System.out.println("\nRESULTADOS:");
+        System.out.printf("Pendiente (m) = %.4f%n", m);
+        System.out.printf("Intersección (b) = %.4f%n", b);
+        System.out.println("La ecuación de la recta ajustada es: y = " + m + "x + " + b);
+        
+        // Predicciones para algunos valores de x (si es necesario)
+        System.out.println("\nRealizando predicciones para valores de x:");
+        System.out.print("Introduzca un valor de x para predecir y: ");
+        double xNuevo = scanner.nextDouble();
+        double yPredicho = m * xNuevo + b;
+        System.out.printf("Para x = %.4f, la predicción de y es: %.4f%n", xNuevo, yPredicho);
+        
+        scanner.close();
+    }
+}
+
+```
+
+### [Caso de Prueba](Casos_de_Prueba) 
+
+## Caso de Prueba - Regresión Lineal (con Entrada del Usuario)
+
+### **Ejercicio**
+
+Calcular la ecuación de la recta de regresión lineal a partir de un conjunto de puntos dados por el usuario, y realizar una predicción de \( y \) para un valor específico de \( x \).
+
+---
+
+### **Entrada en consola**
+
+```java
+Introduzca el número de puntos de datos:
+5
+Introduzca los valores de x e y:
+x[1]: 1
+y[1]: 2
+x[2]: 2
+y[2]: 4
+x[3]: 3
+y[3]: 5
+x[4]: 4
+y[4]: 4
+x[5]: 5
+y[5]: 5
+
+Realizando predicciones para valores de x:
+Introduzca un valor de x para predecir y: 
+6
+```
+
+### **Salida en consola**
+
+```java
+
+RESULTADOS:
+Pendiente (m) = 0.6000
+Intersección (b) = 2.2000
+La ecuación de la recta ajustada es: y = 0.6x + 2.2
+
+Realizando predicciones para valores de x:
+Para x = 6.0000, la predicción de y es: 5.8000
+
+```
+
