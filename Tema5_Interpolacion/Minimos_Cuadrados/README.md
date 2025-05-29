@@ -78,3 +78,106 @@ El código correspondiente a la implementación del **Método de Mínimos Cuadra
 ## **Conclusión**
 
 El **Método de Mínimos Cuadrados** es una herramienta poderosa en el análisis de datos que permite realizar un ajuste preciso de modelos a conjuntos de datos empíricos. Es fundamental en muchas áreas de la ciencia y la ingeniería, y proporciona una base para comprender y predecir relaciones entre variables.
+
+---
+
+### [Codigo en Java](MinimosCuadrados.java)
+
+```java
+
+public class MetodoMinimosCuadrados {
+
+    // Método para calcular la pendiente (m) y la intersección (b) usando el método de mínimos cuadrados
+    public static double[] calcularMinimosCuadrados(double[] x, double[] y) {
+        int n = x.length;
+        
+        // Sumar los valores de x, y, x^2, y*x
+        double sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
+        
+        for (int i = 0; i < n; i++) {
+            sumX += x[i];
+            sumY += y[i];
+            sumXY += x[i] * y[i];
+            sumX2 += x[i] * x[i];
+        }
+        
+        // Calcular la pendiente (m) y la intersección (b) usando las fórmulas de mínimos cuadrados
+        double m = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+        double b = (sumY - m * sumX) / n;
+        
+        // Retornar los valores de m (pendiente) y b (intersección)
+        return new double[]{m, b};
+    }
+
+     // Método para predecir los valores de y usando la recta de regresión y = mx + b
+    public static double[] predecir(double[] x, double m, double b) {
+        double[] yPred = new double[x.length];
+        for (int i = 0; i < x.length; i++) {
+            yPred[i] = m * x[i] + b;
+        }
+        return yPred;
+    }
+     public static void main(String[] args) {
+        // Datos de ejemplo (valores de x y y)
+        double[] x = {1, 2, 3, 4, 5};
+        double[] y = {2, 4, 5, 4, 5};
+        
+        // Calcular la pendiente y la intersección
+        double[] resultados = calcularMinimosCuadrados(x, y);
+        double m = resultados[0];
+        double b = resultados[1];
+        
+        // Mostrar la ecuación de la recta ajustada
+        System.out.println("Ecuación de la recta de regresión: y = " + m + "x + " + b);
+        
+        // Predecir los valores de y usando la recta de regresión
+        double[] yPred = predecir(x, m, b);
+        
+        // Mostrar las predicciones
+        System.out.println("Valores predichos de y:");
+        for (int i = 0; i < yPred.length; i++) {
+            System.out.println("x = " + x[i] + ", Predicción y = " + yPred[i]);
+        }
+    }
+}
+
+```
+
+### [Caso de Prueba](Casos_de_Prueba) 
+
+## Caso de Prueba - Método de Mínimos Cuadrados
+
+### **Ejercicio**
+
+Calcular la recta de regresión (pendiente \( m \) e intersección \( b \)) para los puntos:
+
+- \( (1, 2) \)
+- \( (2, 4) \)
+- \( (3, 5) \)
+- \( (4, 4) \)
+- \( (5, 5) \)
+
+y predecir los valores de \( y \) usando la recta ajustada.
+
+---
+
+### **Entrada en consola**
+
+```java
+// En este caso, los datos están definidos en el código, no se ingresa nada por consola.
+```
+
+### **Salida en consola**
+
+```java
+
+Ecuación de la recta de regresión: y = 0.6x + 2.2
+Valores predichos de y:
+x = 1, Predicción y = 2.8
+x = 2, Predicción y = 3.4
+x = 3, Predicción y = 4.0
+x = 4, Predicción y = 4.6
+x = 5, Predicción y = 5.2
+
+```
+
